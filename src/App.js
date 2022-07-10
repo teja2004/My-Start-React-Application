@@ -1,12 +1,12 @@
 // import logo from './logo.svg';
 import "./App.css";
-import Nav from "./Nav.js";
+import Nav from "./Components/Nav.js";
 
 // let a = 100;
 function App() {
   return (
     <>
-      <Nav/>
+      <Nav title ={"TextUtils"} start={"Start-TextUtils"}/>
     </>
   );
 }

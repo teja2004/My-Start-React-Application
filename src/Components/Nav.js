@@ -1,12 +1,13 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-function Nav() {
+function Nav(props) {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            textUtilis
+            {props.title}
           </a>
           <button
             className="navbar-toggler"
@@ -28,7 +29,7 @@ function Nav() {
               </li>
               <li className="nav-item">
                 <a className="nav-link active" href="/">
-                  Start
+                  {props.start}
                 </a>
               </li>
             </ul>
@@ -51,3 +52,16 @@ function Nav() {
 }
 
 export default Nav
+
+// PropTypes for components Using.
+Nav.propTypes = {
+  title : PropTypes.string.isRequired,  //isRequired is used that this is definite required.
+  start : PropTypes.string.isRequired
+}
+
+
+// Default Props for components if User dosen't give any props in App.js .
+Nav.defaultProps = {
+  title : "Title Please",
+  start : "About"
+}
