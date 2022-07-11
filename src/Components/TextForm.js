@@ -19,14 +19,62 @@ function TextForm(props) {
     setText(lower.replace(lower[0], captial));
   }
 
+  function clearText() {
+    setText("");
+  }
+
+  const handleSpaces = ()=>{
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(' '));
+  }
+
   function handleChange(event) {
     setText(event.target.value);
   }
+
+
+  const [modeText, setModeText] = useState('dark')
+  const [myStyle, setMyStyle] = useState({
+    color: "#000000",
+    backgroundColor: "white",
+  })
+
+
+  function modeChanger(){
+    if (myStyle.color === '#000000')
+    {
+        setMyStyle({
+          color: "white",
+          backgroundColor: "#000000",
+        });
+        setModeText('light')
+    }
+    else
+    {
+        setMyStyle({
+          color: "#000000",
+          backgroundColor: "white",
+        });
+        setModeText('dark')
+    }
+  }
+
   return (
     <>
-      <div className="container my-4">
+      <div className="container my-4 pt-3" style={myStyle}>
         <div className="mb-3">
-          <h2 className="mb-3">{props.head}</h2>
+          <div className="mx-3 my-3">
+            <h2 className="mb-3">
+              {props.head}{" "}
+              <button
+                type="button"
+                className={`mx-5 mt-2 border-2 btn btn-outline-${modeText} text-${setModeText}`}
+                onClick={modeChanger}
+              >
+                {modeText} Mode
+              </button>
+            </h2>
+          </div>
           <textarea
             className="form-control"
             value={text}
@@ -57,6 +105,16 @@ function TextForm(props) {
           >
             Captalize
           </button>
+          <button
+            type="button"
+            className="btn btn-success mx-1"
+            onClick={handleSpaces}
+          >
+            Remove Extra Spaces
+          </button>
+          <button className="btn btn-danger mx-4" onClick={clearText}>
+            Clear Everything
+          </button>
         </div>
         <div className="my-4">
           <h2>Text Summary : </h2>
@@ -65,11 +123,11 @@ function TextForm(props) {
             Characters
           </p>
           <p>
-            Minutes To Read {"Approx"} : {text === "" ? 0 : 0.08 * text.length}{" "}
-            {"Seconds"}
+            Minutes To Read {"Approx"} : {text === "" ? 0 : 0.08 * text.split(' ').length}{" "}
+            Seconds.
           </p>
         </div>
-        <div className="my-4">
+        <div className="my-4 pb-3">
           <h3>Preview : </h3>
           <p>
             <i>{text}</i>
