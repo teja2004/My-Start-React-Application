@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 function Nav(props) {
   return (
     <>
-      <nav className={`navbar navbar-expand-lg navbar-${props.mode === "dark" ? "light" : "dark"} bg-${props.mode === "dark" ? "success" : "danger"}`}>
+      <nav className={`navbar navbar-expand-lg navbar-light bg-light`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.title}
