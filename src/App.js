@@ -19,6 +19,7 @@ function App() {
       setAlert(null)
     }, 2000);
   }
+
   return (
     <>
       <Nav title ={"TextUtils"} start={"Start"}/>

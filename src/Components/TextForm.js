@@ -53,6 +53,7 @@ function TextForm(props) {
       });
       setModeText("light");
       document.body.style.backgroundColor = "rgb(14 ,14, 0)";
+      document.title = "TextUtils - Home - Dark Mode";
     } else {
       setMyStyle({
         color: "rgb(4 4 56)",
@@ -60,6 +61,8 @@ function TextForm(props) {
       });
       setModeText("dark");
       document.body.style.backgroundColor = "white";
+      document.title = "TextUtils - Home - Light Mode";
+
     }
   }
 
