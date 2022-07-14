@@ -35,6 +35,8 @@ export default function About(){
                     By <q>V Nagateja</q> With the Help of{" "}
                     <code>CodewithHarry</code>.
                   </p>
+                  <br/><br/>
+                  <p>ThankYou!!</p>
                 </div>
               </div>
             </div>
