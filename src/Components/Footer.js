@@ -2,11 +2,23 @@ import React from "react";
 
 function Footer(props){
     return (
-        <>
-            <div className={`w-100 h-25 text-center py-2 bg-dark text-light`}>
-                <h4><i>Footer</i></h4>
-            </div>
-        </>
+      <>
+        <div
+          className={`w-100 text-center pt-2 bg-${
+            props.mainMode === "dark" ? "success" : "danger"
+          } text-${
+            props.mainMode === "dark" ? "dark" : "light"
+          }`} style={{position : 'absolute',marginTop :'100%'}}
+        >
+          <p>
+            Copyright &copy; &nbsp; - &nbsp;
+            <i>Nagateja</i> Made with Help of{" "}
+            <i>
+              <q>CodeWithHarry</q>
+            </i>
+          </p>
+        </div>
+      </>
     );
 }
 export default Footer;

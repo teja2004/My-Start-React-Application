@@ -5,9 +5,10 @@ import React , {useState} from "react";
 import Nav from "./Components/Nav.js";
 import Alert from "./Components/Alert.js";
 import TextForm from "./Components/TextForm";
-// import About from "./Components/About.js";
+import About from "./Components/About.js";
+import Footer from "./Components/Footer.js";
 
-// import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
     });
     setTimeout(() => {
       setAlert(null)
-    }, 2000);
+    }, 4000);
   }
 
   // Function for Dark Mode Extension via NavBar .
@@ -54,29 +55,39 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
-      <Nav toggleMode={modeChanger} mainStyle={style} mainMode={mode} title={"TextUtils"} start={"About"}/>
-      <Alert alert={alert} mainStyle={style} mainMode={mode}/>
-      <TextForm mainStyle={style} mainMode={mode} showAlertFnc={showAlert} head={"Enter Analyzing Text Below : "}/>
-      {/* <About /> */}
+      <Router>
+        <Nav
+          toggleMode={modeChanger}
+          mainStyle={style}
+          mainMode={mode}
+          title={"TextUtils"}
+          start={"About"}
+        />
+        <Alert alert={alert} mainStyle={style} mainMode={mode} />
+        {/* <TextForm mainStyle={style} mainMode={mode} showAlertFnc={showAlert} head={"Enter Analyzing Text Below : "}/> */}
+        {/* <About /> */}
 
-
-      {/* <Routes>
-          <Route exact path="/about" element={<About />} />
+        <Routes>
           <Route
-            exact 
+            exact
+            path="/about"
+            element={<About mainStyle={style} mainMode={mode} />}
+          />
+          <Route
+            exact
             path="/"
             element={
               <TextForm
                 showAlertFnc={showAlert}
+                mainStyle={style}
+                mainMode={mode}
                 head={"Enter Analyzing Text Below : "}
               />
             }
           />
-        </Routes> */}
-      {/* </Router> */}
-
-
+        </Routes>
+        <Footer mainStyle={style} mainMode={mode} />
+      </Router>
     </>
   );
 }
