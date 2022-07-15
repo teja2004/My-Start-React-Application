@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 function Nav(props) {
   return (
     <>
@@ -10,9 +10,9 @@ function Nav(props) {
         } bg-${props.mainMode === "light" ? "danger" : "success"}`}
       >
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <Link className="navbar-brand" to="/">
             {props.title}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -27,24 +27,24 @@ function Nav(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <Link className="nav-link active" to="/about">
                   {props.start}
                 </Link>
-              </li> */}
+              </li>
             </ul>
-            <div class="form-check form-switch">
+            <div className="form-check form-switch">
               <input
-                class="form-check-input"
+                className="form-check-input"
                 type="checkbox"
                 id="flexSwitchCheckChecked"
                 onChange={props.toggleMode}
               />
-              <label class={`form-check-label text-${props.mainMode === 'light'?'light':'dark'} `} for="flexSwitchCheckChecked">
+              <label className={`form-check-label text-${props.mainMode === 'light'?'light':'dark'} `} htmlFor="flexSwitchCheckChecked">
                 <strong>
                   <i>{`${
                     props.mainMode === "light" ? "light" : "dark"

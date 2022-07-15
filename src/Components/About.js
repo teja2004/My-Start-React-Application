@@ -1,11 +1,13 @@
 import React from "react";
 
-export default function About(){
+export default function About(props){
     return (
       <>
-        <div className="container my-4">
+        <div className={`container my-4`}>
           <div className="accordion" id="accordionExample">
-            <div className="accordion-item">
+            <div className={`accordion-item bg-${
+              props.mainMode === "dark" ? "light" : "dark"
+            } text-${props.mainMode === "dark" ? "dark" : "light"}`}>
               <h2 className="accordion-header" id="headingOne">
                 {/* <button
                   className="accordion-button"
